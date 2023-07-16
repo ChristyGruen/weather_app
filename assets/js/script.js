@@ -29,7 +29,8 @@ else{
   cityArchiveList = JSON.parse(localStorage.getItem('cityKey'));
   console.log(cityArchiveList)
 }
-
+////////////////////////////////////////////////////////////////
+// search button 
 let citySearchButton = $('button.searchButton')
 
 citySearchButton.on('click',function(){
@@ -45,28 +46,26 @@ citySearchButton.on('click',function(){
   let retCityString = localStorage.getItem('cityKey')
   let retCityArchiveList = JSON.parse(retCityString)
   console.log(retCityArchiveList)
-  
-  //call function to create the buttons?  can also be used when the page loads
   console.log(retCityArchiveList.length)
   
   for (i=0;i<retCityArchiveList.length;i++){
     console.log(retCityArchiveList[i])
     var archiveInjection = $('#cityArchivery')
-    archiveInjection.append(`<li><button type="button" class="btn btn-primary col-12 me-2 mb-2">${retCityArchiveList[i]}</button></li>`)
+    archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-primary col-12 me-2 mb-2">${retCityArchiveList[i]}</button></li>`)
   }
-  
-
-
-  
-
-
-
-
-
 });
 
+//////////////////////////////////////////////////////////////////////
+// city archive buttons
+let cityArchiveSearchButton = $('#cityArchivery')
 
+cityArchiveSearchButton.on('click','.archiveButton',function(event){
+  console.log('The Archivery is ALIVE')
+  console.log($(this));
 
+  console.log($(this).text());
+  citySelected = $(this).text()
+})
 
 
 ///////////////////////////////////////////////////////////////////////
