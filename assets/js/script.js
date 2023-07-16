@@ -17,7 +17,8 @@ let cityLng = 'default'
 const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${citySelected}&appid=${apiKey}&units=imperial`
 console.log(apiURL)
 
-$('.cityContent').text(`${citySelected} (${localDate}) ICON`)
+
+$('.cityContent').text(`${citySelected} (${localDate})`)
 
 
 fetch(apiURL)
@@ -35,8 +36,10 @@ fetch(apiURL)
     currentSymbol = response.weather[0].icon  //doesn't work yet
     var iconURL = "http://openweathermap.org/img/w/" + currentSymbol + ".png";
     console.log(iconURL)
+   
     $('.cityContent').text(`${citySelected} (${localDate})`)
     $('#wicon').attr('src', iconURL);
+    $('#wicon2').attr('src', iconURL);
     $('#cityTemp').text(`Temp: ${currentTemp}°F`)
     $('#cityWind').text(`Wind: ${currentWind} MPH`)
     $('#cityHumid').text(`Humidity: ${currentHumid}%`)
