@@ -21,6 +21,7 @@ let cityLng = -93.2638
 let cityArchiveList
 
 //if else to allow cityKey to persist in localStorage
+// https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
 if(localStorage.getItem('cityKey')===null){
   cityArchiveList =[]
   console.log(cityArchiveList)
@@ -113,13 +114,12 @@ fetch(api2URL)
     console.log(currentHumid)
     currentSymbol = response.list[0].weather[0].icon  
     console.log(currentSymbol)    
-   
+    // https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
 
     var iconURL = "http://openweathermap.org/img/w/" + currentSymbol + ".png";
     console.log(iconURL)
    
-    $('.cityName').text(`${citySelected}`)
-    $('.cityDate').text(`(${localDate})`)
+    $('.cityContent').text(`${citySelected} (${localDate})`)
     $('#wicon').attr('src', iconURL);
     $('#cityTemp').text(`Temp: ${currentTemp}°F`)
     $('#cityWind').text(`Wind: ${currentWind} MPH`)
@@ -151,5 +151,5 @@ fetch(api2URL)
 
   });
 
-
+  // https://stackoverflow.com/questions/65509794/how-can-i-hide-an-api-key-in-a-github-public-repo
 

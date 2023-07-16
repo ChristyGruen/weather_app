@@ -53,25 +53,27 @@
           </ul>
         </div>
         <div class="container cityArchive top-border">
-          <ul id = 'cityArchiveList' class = 'list-unstyled'>
-            <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Chaska</button></li>
-            <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Duluth</button></li>
+          <ul id = 'cityArchivery' class = 'list-unstyled'>
+            <!-- <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Chaska</button></li>
+            <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Duluth</button></li> -->
           </ul>
         </div>
       </div>
       <!-- main container col-mid-8 -->
-      <div class="container mainContent col-12 col-md-8 col-lg-9">
+      <div class="container mainContent col-md-8 col-lg-9">
         <div class = "row">
           <!-- within main: cityInfo container col-mid-12 
           Header with City Name, Date and current weather icon
           current temp
           current wind
           current humidity-->
-          <div class = 'container border border-dark m-50'>
-            <div class = 'row'>
-              <span class = 'cityContent fw-bold fs-5'>CityName (Date) 
+          <div class = 'container border border-dark col-md-11' >
+            <div class = 'row text-start'>
+              <span class = 'cityName fw-bold fs-5 col-md-3'>CityName
               </span>
-              <span id="icon"><img id="wicon" src="" alt="Weather icon"></span> 
+              <span class = 'cityDate fw-bold fs-5 col-md-3'>Date
+              </span>
+              <span id="icon" class = 'col-md-2'><img id="wicon"  src="" alt="Weather icon"></span> 
             </div>
             <ul id = 'cityData' class = 'list-unstyled'>
               <li id = 'cityTemp'>Temp: current temp</li>
@@ -83,7 +85,7 @@
         <div class = "row">
           <!-- within main: forecast container col-mid-12
           header "5 day forecast:"-->
-          <div class = 'container-fluid forecastContent'>
+          <div class = 'container-fluid forecastContent col-md-11'>
             <h3 class = 'fw-bold'>5-day Forecast:</h3>
             <!-- within forecast: dailyForecast containers each col-mid-2 ? 
             header with future date
