@@ -50,77 +50,84 @@ fetch(api2URL)
    
     $('.cityContent').text(`${citySelected} (${localDate})`)
     $('#wicon').attr('src', iconURL);
-    $('#wicon2').attr('src', iconURL);
     $('#cityTemp').text(`Temp: ${currentTemp}°F`)
     $('#cityWind').text(`Wind: ${currentWind} MPH`)
     $('#cityHumid').text(`Humidity: ${currentHumid}%`)
 
 
 
-    //first forecastDay
-    forecastDate = response.list[8].dt_txt.split(" ")[0]
-    forecastTemp = response.list[8].main.temp
-    console.log(forecastTemp)
-    forecastWind = response.list[8].wind.speed
-    console.log(forecastWind)
-    forecastHumid = response.list[8].main.humidity
-    console.log(forecastHumid)
-    forecastSymbol = response.list[8].weather[0].icon  //worked to get url 4 icon
-    console.log(forecastSymbol)    //it just might work
-    // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
+    // //first forecastDay
+    // let forecastDate = response.list[8].dt_txt.split(" ")[0]
 
-    var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
-    console.log(iconURL)
+    // let forecastTemp = response.list[8].main.temp
+    // console.log(forecastTemp)
+    // let forecastWind = response.list[8].wind.speed
+    // console.log(forecastWind)
+    // let forecastHumid = response.list[8].main.humidity
+    // console.log(forecastHumid)
+    // let forecastSymbol = response.list[8].weather[0].icon  //worked to get url 4 icon
+    // console.log(forecastSymbol)    //it just might work
+    // // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
+
+    // var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
+    // console.log(iconURL)
    
-    $('.fDate1').text(`${forecastDate}`)
-    $('#fwicon1').attr('src', iconURL);
-    $('#fTemp1').text(`Temp: ${currentTemp}°F`)
-    $('#fWind1').text(`Wind: ${currentWind} MPH`)
-    $('#fHumid1').text(`Humidity: ${currentHumid}%`)
+    // $('.fDate1').text(`${forecastDate}`)
+    // $('#fwicon1').attr('src', iconURL);
+    // $('#fTemp1').text(`Temp: ${forecastTemp}°F`)
+    // $('#fWind1').text(`Wind: ${forecastWind} MPH`)
+    // $('#fHumid1').text(`Humidity: ${forecastHumid}%`)
 
 
-        //first forecastDay
-    forecastDate = response.list[8].dt_txt.split(" ")[0]
-    forecastTemp = response.list[8].main.temp
-    console.log(forecastTemp)
-    forecastWind = response.list[8].wind.speed
-    console.log(forecastWind)
-    forecastHumid = response.list[8].main.humidity
-    console.log(forecastHumid)
-    forecastSymbol = response.list[8].weather[0].icon  //worked to get url 4 icon
-    console.log(forecastSymbol)    //it just might work
-    // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
+    //     //second forecastDay 
+    // forecastDate = response.list[16].dt_txt.split(" ")[0]
+    // forecastTemp = response.list[16].main.temp
+    // console.log(forecastTemp)
+    // forecastWind = response.list[16].wind.speed
+    // console.log(forecastWind)
+    // forecastHumid = response.list[16].main.humidity
+    // console.log(forecastHumid)
+    // forecastSymbol = response.list[16].weather[0].icon  //worked to get url 4 icon
+    // console.log(forecastSymbol)    //it just might work
+    // // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
 
-    var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
-    console.log(iconURL)
+    // var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
+    // console.log(iconURL)
    
-    $('.fDate1').text(`${forecastDate}`)
-    $('#fwicon1').attr('src', iconURL);
-    $('#fTemp1').text(`Temp: ${currentTemp}°F`)
-    $('#fWind1').text(`Wind: ${currentWind} MPH`)
-    $('#fHumid1').text(`Humidity: ${currentHumid}%`)
+    // $('.fDate2').text(`${forecastDate}`)
+    // $('#fwicon2').attr('src', iconURL);
+    // $('#fTemp2').text(`Temp: ${forecastTemp}°F`)
+    // $('#fWind2').text(`Wind: ${forecastWind} MPH`)
+    // $('#fHumid2').text(`Humidity: ${forecastHumid}%`)
 ////////////////////////////////////////////////////////////
 //try for forecast loop
-    //first forecastDay
-    forecastDate = response.list[8].dt_txt.split(" ")[0]
-    forecastTemp = response.list[8].main.temp
-    console.log(forecastTemp)
-    forecastWind = response.list[8].wind.speed
-    console.log(forecastWind)
-    forecastHumid = response.list[8].main.humidity
-    console.log(forecastHumid)
-    forecastSymbol = response.list[8].weather[0].icon  //worked to get url 4 icon
-    console.log(forecastSymbol)    //it just might work
-    // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
 
-    var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
-    console.log(iconURL)
-   
-    $('.fDate1').text(`${forecastDate}`)
-    $('#fwicon1').attr('src', iconURL);
-    $('#fTemp1').text(`Temp: ${currentTemp}°F`)
-    $('#fWind1').text(`Wind: ${currentWind} MPH`)
-    $('#fHumid1').text(`Humidity: ${currentHumid}%`)
+    //first forecastDay
+    for(let i = 0;i<40;i=i+8){
+      // let forecastDate = localDate
+      let forecastDate = response.list[i].dt_txt.split(" ")[0] 
+      console.log(response.list[i].dt_txt)
+      console.log(forecastDate)
+      let forecastTemp = response.list[i].main.temp
+      console.log(forecastTemp)
+      let forecastWind = response.list[i].wind.speed
+      console.log(forecastWind)
+      let forecastHumid = response.list[i].main.humidity
+      console.log(forecastHumid)
+      let forecastSymbol = response.list[i].weather[0].icon  //worked to get url 4 icon
+      console.log(forecastSymbol)    //it just might work
+      // currentSymbol = response.weather[0].icon  //worked to get the url 4 the icon
+
+      var iconURL = "http://openweathermap.org/img/w/" + forecastSymbol + ".png";
+      console.log(iconURL)
+      console.log(i)
+    
+      $(`.fDate${(i+8)/8}`).text(`${forecastDate}`)
+      $(`#fwicon${(i+8)/8}`).attr('src', iconURL);
+      $(`#fTemp${(i+8)/8}`).text(`Temp: ${forecastTemp}°F`)
+      $(`#fWind${(i+8)/8}`).text(`Wind: ${forecastWind} MPH`)
+      $(`#fHumid${(i+8)/8}`).text(`Humidity: ${forecastHumid}%`)
+    }
 
   });
 
