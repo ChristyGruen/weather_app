@@ -132,7 +132,7 @@ function populateWeatherDashboard(){
               console.log(currentSymbol)    
             
 
-              var iconURL = "http://openweathermap.org/img/w/" + currentSymbol + ".png";
+              var iconURL = "https://openweathermap.org/img/w/" + currentSymbol + ".png";
               console.log(iconURL)
             
               $('.cityName').text(`${citySelected}`)
