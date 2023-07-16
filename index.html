@@ -27,34 +27,46 @@
   <!-- Header 
       Colored, "Weather Dashboard"
       container-fluid-->
-
   <header class="container-fluid  bg-primary text-light mb-5 p-3">
     <div class=" text-center">
       <h1 class ='fs-1 fw-bolder'>Weather Dashboard</h1>
     </div> 
   </header>
+  
   <section class="container-fluid my-5">
-    <!-- Use row class to create row in the container -->
     <div class="row">
-      <!-- Use col-* classes for different column sizes on different screens -->
-      <div class="container sideSearch col-12 col-md-4 col-lg-3 p-3">
-        <div class="row citySearch border-bottom">
+      <!-- sidebar container col-mid-4 
+      Header "Search for City"
+      Input field for City
+      Search Button
+        upon search click
+          populate previous search by adding div below search area that will trigger search for that city, save to localStorage
+          populate CityInfo
+          populate Forecast-->
+      <div class="container sideSearch col-12 col-md-4 col-lg-3 ">
+        <div class="container citySearch border-bottom me-2 mb-4">
           <h3 class = 'fs-4 fw-bold text-start'>Search for a City:</h3>
-          <ul class = 'list-unstyled'>
-            <li>input city name here</li>
-            <li>search button here</li>
+          <ul class = 'list-unstyled col-12'>
+            <li><textarea class="cityInput col-12 text-center">input city name here</textarea></li>
+            <li><button type="button" class="btn btn-primary col-12">Search</button>
+            </li>
           </ul>
         </div>
-        <div class="row">
-          <ul id = 'cityArchive' class = 'list-unstyled'>
-            <li>city archive 1</li>
-            <li>city archive 2</li>
+        <div class="container cityArchive top-border">
+          <ul id = 'cityArchiveList' class = 'list-unstyled'>
+            <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Chaska</button></li>
+            <li><button type="button" class="btn btn-primary col-12 me-2 mb-2">Duluth</button></li>
           </ul>
         </div>
       </div>
-      
+      <!-- main container col-mid-8 -->
       <div class="container mainContent col-12 col-md-8 col-lg-9">
         <div class = "row">
+          <!-- within main: cityInfo container col-mid-12 
+          Header with City Name, Date and current weather icon
+          current temp
+          current wind
+          current humidity-->
           <div class = 'container border border-dark m-50'>
             <div class = 'row'>
               <span class = 'cityContent fw-bold fs-5'>CityName (Date) 
@@ -69,8 +81,16 @@
           </div>
         </div>
         <div class = "row">
+          <!-- within main: forecast container col-mid-12
+          header "5 day forecast:"-->
           <div class = 'container-fluid forecastContent'>
             <h3 class = 'fw-bold'>5-day Forecast:</h3>
+            <!-- within forecast: dailyForecast containers each col-mid-2 ? 
+            header with future date
+            weather icon
+            future date temp
+            future date wind
+            future date humidity-->
             <div class = 'container-fluid'>
               <div class = "row">
                 <div class="card col-2 m-2">
@@ -118,22 +138,8 @@
                     <li id = 'fHumid5'>Humidity: +5</li>
                   </ul>
                 </div>
-                <!-- <div class="card col-2 m-2">
-                  <h6 class="card-title fDate5">currentDate+5</h6>
-                  <span id="fIcon5"><img id="fwicon5" src="" alt="Weather icon5"></span>
-                  <ul id = 'fData5' class = 'list-unstyled tinyText'>
-                    <li id = 'fTemp5'>Temp: +5</li>
-                    <li id = 'fWind5'>Wind: +5</li>
-                    <li id = 'fHumid5'>Humidity: +5</li>
-                  </ul>
-                </div> -->
               </div>
             </div>
-            <!-- <ul id = 'cityData' class = 'list-unstyled'>
-              <li id = 'cityTemp'>Temp: current temp</li>
-              <li id = 'cityWind'>Wind: current wind</li>
-              <li id = 'cityHumid'>Humidity: current humidity</li>
-            </ul> -->
           </div>
         </div>
       </div>
@@ -141,34 +147,8 @@
 
     </div>
   </section>
-  <!-- sidebar container col-mid-4 
-      Header "Search for City"
-      Input field for City
-      Search Button
-        upon search click
-          populate previous search by adding div below search area that will trigger search for that city, save to localStorage
-          populate CityInfo
-          populate Forecast-->
-
-  <!-- main container col-mid-8 -->
-  <!-- within main: cityInfo container col-mid-12 
-      Header with City Name, Date and current weather icon
-      current temp
-      current wind
-      current humidity-->
-  <!-- within main: forecast container col-mid-12
-      header "5 day forecast:"-->
-  <!-- within forecast: dailyForecast containers each col-mid-2 ? 
-      header with future date
-      weather icon
-      future date temp
-      future date wind
-      future date humidity-->
 
   <!-- consider creating the weather app with a default city - Minneapolis, then add dynamics -->
-
-
-
 
   <footer class = 'mt-auto footer bg-secondary'>
     <h5>Attribution</h5>
