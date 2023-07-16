@@ -13,6 +13,62 @@ console.log(localDate)
 let citySelected = 'Minneapolis'
 let cityLat = 44.98
 let cityLng = -93.2638
+let cityArchiveList
+
+//if else to allow cityKey to persist in localStorage
+if(localStorage.getItem('cityKey')===null){
+  cityArchiveList =[]
+  console.log(cityArchiveList)
+}
+else{
+  cityArchiveList = JSON.parse(localStorage.getItem('cityKey'));
+  console.log(cityArchiveList)
+}
+
+let citySearchButton = $('button.searchButton')
+
+citySearchButton.on('click',function(){
+  console.log($(this));
+  citySelected = $('textarea#cityInput').val()
+  console.log(citySelected)
+  cityArchiveList.push(citySelected)
+  console.log(cityArchiveList)
+  //https://www.geeksforgeeks.org/how-to-store-an-array-in-localstorage/
+  let cityString = JSON.stringify(cityArchiveList)
+  localStorage.setItem('cityKey',cityString)
+  console.log(cityString)
+  let retCityString = localStorage.getItem('cityKey')
+  let retCityArchiveList = JSON.parse(retCityString)
+  console.log(retCityArchiveList)
+  //this would work if I could make a js object, but MVP could be a list of cities
+  //create object that will save button info and can recreate buttons when you refresh the website
+  //add the citySelected to the object
+  // need to stringify the object
+  //localStorage.setItem('cityArchive, nameOfStringifiedObject)
+  //pull the object from localStorage and jsonify
+  //call function to create the buttons?  can also be used when the page loads
+  console.log(retCityArchiveList.length)
+  
+  // this caused LOTS of errors, bad loop?
+  for (i=0;i<retCityArchiveList.length;i++){
+    console.log(retCityArchiveList[i])
+  }
+  
+
+  
+
+  // set new submission to local storage 
+  // localStorage.setItem("user", JSON.stringify(user));
+
+
+
+
+});
+
+
+
+
+
 
 //this is the API with the lat and lng
 // const api1URL = `https://api.openweathermap.org/data/2.5/weather?q=${citySelected}&appid=${apiKey}&units=imperial`
