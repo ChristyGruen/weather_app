@@ -1,10 +1,3 @@
-// need to make the archive city buttons active as search buttons - clicking on archive buttons will set citySelected as the clicked on button (done?)
-// need to set up the api call for lat and lng (done)
-//need to populate archive city buttons upon page load (done)
-//need to link everything together (might be done)
-
-
-
 let coordinateResponse = 'default'
 let weatherResponse = 'default'
 let currentTemp = 'default'
@@ -13,14 +6,15 @@ let currentHumid = 'default'
 let currentSymbol = 'default'
 let localDate = dayjs().format('MM/DD/YYYY');
 console.log(localDate)
-let citySelected = 'Minneapolis'
-let cityLat = 44.98
-let cityLng = -93.2638
-// let cityLat
-// let cityLng
+let citySelected = 'Minneapolis' //default city upon launch
+let cityLat
+let cityLng
 let cityArchiveList
+let apiKey = 'ea1287627858236ae76a1d06f3d74d61'
 
-//if else to allow cityKey to persist in localStorage
+////////////////////////////////////////////////
+//at Launch
+//if else to retrieve cityKey from localStorage
 if(localStorage.getItem('cityKey')===null){
   cityArchiveList =[]
   console.log(cityArchiveList)
@@ -36,10 +30,9 @@ for (i=0;i<cityArchiveList.length;i++){
   var archiveInjection = $('#cityArchivery')
   archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-primary col-12 me-2 mb-2">${cityArchiveList[i]}</button></li>`)
 }
-//////////////////////////
 // fill weather data for default city upon launch
 populateWeatherDashboard()
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////
 // search button 
 let citySearchButton = $('button.searchButton')
 
@@ -66,6 +59,15 @@ citySearchButton.on('click',function(){
     var archiveInjection = $('#cityArchivery')
     archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-primary col-12 me-2 mb-2">${retCityArchiveList[i]}</button></li>`)
   }
+  // tryThis = apiKey.split('')
+  // for(let i = 0;i<tryThis.length;i=i+2){
+  //   apiNo = tryThis[i]
+  //   console.log(apiNo)
+  //   apiKey.push(apiNo)
+  // }
+  //   console.log(apiKey)
+    apiKey = '1d736da7a388272ae1867526e610fd46'
+
   //function populate weather data
   populateWeatherDashboard()
 });
@@ -86,9 +88,10 @@ cityArchiveSearchButton.on('click','.archiveButton',function(event){
 })
 
 function populateWeatherDashboard(){
+  cle = '1d736da7a388272ae1867526e610fd46'
   ///////////////////////////////////////////////////////////////////////
   //this is the API with the lat and lng
-  const api1URL = `https://api.openweathermap.org/data/2.5/weather?q=${citySelected}&appid=${apiKey}&units=imperial`
+  const api1URL = `https://api.openweathermap.org/data/2.5/weather?q=${citySelected}&appid=${cle}&units=imperial`
   console.log(api1URL)
   ///////////////////////////////////////////////////////////////////////
   fetch(api1URL)
@@ -106,7 +109,8 @@ function populateWeatherDashboard(){
       console.log(cityLng)
 
         //////////////////////////////////////////////////////////////////////
-          const api2URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLng}&appid=${apiKey}&units=imperial`
+        //embed second api to ensure lat and lng are available prior to call
+          const api2URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLng}&appid=${cle}&units=imperial`
           console.log(api2URL)
 
           //get weather data
@@ -161,14 +165,10 @@ function populateWeatherDashboard(){
                 $(`#fWind${(i+8)/8}`).text(`Wind: ${forecastWind} MPH`)
                 $(`#fHumid${(i+8)/8}`).text(`Humidity: ${forecastHumid}%`)
               }
-
+              cle = '16d47d3f60d1a67ea6328587267821ae'
             });
     ////////////////////////////////
-
     });
-
-
-
 }; //end function populateWeatherDashboard
 
 

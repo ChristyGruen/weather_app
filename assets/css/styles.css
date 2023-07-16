@@ -1,3 +1,10 @@
+header{
+  background: #3d3c58;
+background: linear-gradient(180deg,#3d3c58 0%, #150db1 80%);
+background: -webkit-linear-gradient(180deg,#3d3c58 0%, #150db1 80%);
+background: -moz-linear-gradient(180deg,#3d3c58 0%, #150db1 80%);
+}
+
 .card{
   background-color:#204060;
   color:aliceblue;
