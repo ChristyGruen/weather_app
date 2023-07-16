@@ -28,7 +28,7 @@ else{
 for (i=0;i<cityArchiveList.length;i++){
   console.log(cityArchiveList[i])
   var archiveInjection = $('#cityArchivery')
-  archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-primary col-12 me-2 mb-2">${cityArchiveList[i]}</button></li>`)
+  archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-secondary col-12 me-2 mb-2">${cityArchiveList[i]}</button></li>`)
 }
 // fill weather data for default city upon launch
 populateWeatherDashboard()
@@ -57,7 +57,7 @@ citySearchButton.on('click',function(){
   for (i=0;i<retCityArchiveList.length;i++){
     console.log(retCityArchiveList[i])
     var archiveInjection = $('#cityArchivery')
-    archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-primary col-12 me-2 mb-2">${retCityArchiveList[i]}</button></li>`)
+    archiveInjection.append(`<li><button type="button" class="archiveButton btn btn-secondary col-12 me-2 mb-2">${retCityArchiveList[i]}</button></li>`)
   }
   // tryThis = apiKey.split('')
   // for(let i = 0;i<tryThis.length;i=i+2){

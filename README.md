@@ -41,7 +41,7 @@ The following image shows the web application's appearance and functionality:
 ## Website Link
 
 <!-- HTML embed link -->
-<a href="https://christygruen.github.io/weather_app/" target="_blank">Calendar App </a>
+<a href="https://christygruen.github.io/weather_app/" target="_blank">Weather App</a>
 
 
 ## Completed by:
